@@ -1,20 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SecondActivity"
-    android:orientation="vertical"
-    android:padding="30dp">
+package com.example.program4;
 
-    <Button
-        android:id="@+id/btnImplicitContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Implicit Content"
-        android:textSize="30sp"
-        android:layout_marginTop="30dp">
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-    </Button>
-</LinearLayout>
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class SecondActivity extends AppCompatActivity {
+
+    Button btnImplicitContent;
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        btnImplicitContent=findViewById(R.id.btnImplicitContent);
+        btnImplicitContent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse("https://www.google.com");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                startActivity(intent);
+            }
+        });
+    }}
