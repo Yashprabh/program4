@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onImplicitButtonClicked(View view) {
-        Uri url = Uri.parse("https://www.google.com");
-        Intent i = new Intent(Intent.ACTION_VIEW, url);
+        Intent i = new Intent(MainActivity.this, SecondActivity.class);
         startActivity(i);
     }
 
